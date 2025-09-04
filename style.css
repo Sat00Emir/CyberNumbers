@@ -7,28 +7,32 @@
 
 body {
     background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 1rem;
+    overflow-x: hidden;
 }
-
 
 body::before {
     background-image: url("img/code.png");
     background-repeat: no-repeat;
     background-position: right;
+    background-size: contain;
     content: "";
     display: block;
     position: absolute;
     width: 100%;
     height: 100%;
     opacity: 0.4;
+    z-index: -1;
 }
 
 .container {
-    width: 1200px;
-    height: 600px;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,21 +40,26 @@ body::before {
     border: 1px solid #1875E8;
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
     background-image: url("img/Ruido.png");
-    background-size: 100% 100%;
+    background-size: cover;
     position: relative;
+    padding: 2rem;
+    flex-wrap: wrap;
+    gap: 2rem;
 }
-
 
 .container__contenido {
     display: flex;
     align-items: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
+    flex: 1;
+    flex-wrap: wrap;
 }
 
 .container__informaciones {
     flex: 1;
-    padding: 3rem;
+    padding: 2rem;
+    min-width: 280px;
 }
 
 .container__boton {
@@ -58,10 +67,11 @@ body::before {
     background: #1875E8;
     padding: 16px 24px;
     width: 100%;
-    font-size: 24px;
+    font-size: 1.2rem;
     font-weight: 700;
     border: none;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+    cursor: pointer;
 }
 
 .container__boton:disabled {
@@ -69,7 +79,7 @@ body::before {
 }
 
 .container__texto {
-    margin: 16px 0 16px 0;
+    margin: 12px 0;
 }
 
 .container__texto-azul {
@@ -78,26 +88,27 @@ body::before {
 
 .container__input {
     width: 100%;
-    height: 72px;
+    height: 60px;
     border-radius: 16px;
     background-color: #FFF;
     border: none;
     color: #1875E8;
-    padding: 2rem;
-    font-size: 24px;
+    padding: 1rem;
+    font-size: 1.2rem;
     font-weight: 700;
     font-family: 'Inter', sans-serif;
 }
 
 .container__botones {
     display: flex;
-    gap: 2em;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 72px;
-    padding-bottom: 3rem;
+    font-size: 3rem;
+    padding-bottom: 2rem;
 }
 
 p,
@@ -106,6 +117,77 @@ button {
 }
 
 .texto__parrafo {
-    font-size: 32px;
+    font-size: 1.5rem;
     font-weight: 400;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.2rem;
+        gap: 1.5rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        padding-bottom: 1rem;
+    }
+
+    .texto__parrafo {
+        font-size: 1.2rem;
+    }
+
+    .container__input {
+        font-size: 1rem;
+        height: 50px;
+        padding: 0.8rem;
+    }
+
+    .container__boton {
+        font-size: 1rem;
+        padding: 12px 20px;
+        margin-top: 1rem;
+    }
+
+    img {
+        display: block;
+        margin: 1rem auto 0 auto; /* 🔹 centrada */
+        max-width: 80%;           /* 🔹 se adapta al ancho */
+        height: auto;             /* 🔹 mantiene proporción */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        border-radius: 16px;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .texto__parrafo {
+        font-size: 1rem;
+    }
+
+    .container__input {
+        font-size: 0.9rem;
+        height: 45px;
+    }
+
+    .container__boton {
+        font-size: 0.9rem;
+        padding: 10px 16px;
+        margin-top: 0.8rem;
+    }
+
+    img {
+        margin: 1rem auto 0 auto;
+        max-width: 70%;  /* 🔹 un poquito más chica en celular */
+        height: auto;
+    }
 }
