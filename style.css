@@ -66,12 +66,12 @@ body::before {
     border-radius: 16px;
     background: #1875E8;
     padding: 16px 24px;
-    width: 100%;
+    flex: 1;             /* 🔹 botones mismo tamaño */
     font-size: 1.2rem;
     font-weight: 700;
     border: none;
-    margin-top: 1.5rem;
     cursor: pointer;
+    min-width: 120px;    /* 🔹 no se achican demasiado */
 }
 
 .container__boton:disabled {
@@ -101,8 +101,9 @@ body::before {
 
 .container__botones {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
+    gap: 1rem;          /* espacio entre botones */
+    margin-top: 1.5rem; /* separación con el input */
+    flex-wrap: wrap;    /* permite que bajen si no entran */
 }
 
 h1 {
@@ -148,7 +149,12 @@ button {
     .container__boton {
         font-size: 1rem;
         padding: 12px 20px;
-        margin-top: 1rem;
+        width: 100%; /* 🔹 en celulares ocupan todo el ancho */
+    }
+
+    .container__botones {
+        flex-direction: column; /* 🔹 en celulares se apilan */
+        gap: 0.8rem;
     }
 
     img {
@@ -182,7 +188,6 @@ button {
     .container__boton {
         font-size: 0.9rem;
         padding: 10px 16px;
-        margin-top: 0.8rem;
     }
 
     img {
